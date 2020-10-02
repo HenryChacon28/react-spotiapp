@@ -35,9 +35,7 @@ export class ArtistaComponent {
 
     this.spotify.getArtista( id )
           .subscribe( artista => {
-            console.log(artista);
             this.artista = artista;
-
             this.loadingArtist = false;
           });
 
@@ -47,7 +45,6 @@ export class ArtistaComponent {
 
     this.spotify.getTopTracks( id )
             .subscribe( topTracks => {
-              console.log(topTracks);
               this.topTracks = topTracks;
             });
 
