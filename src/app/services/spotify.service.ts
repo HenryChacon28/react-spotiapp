@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+// consumo de api para poder cargar las canciones
+
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -15,14 +17,17 @@ export class SpotifyService {
 
     const url = `https://api.spotify.com/v1/${ query }`;
 
+    // Token necesario para las peticiones usar token personal que no haya expirado su uso
+
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQBWf67dagrceY7EbFrQc48iUXuhgfhRXoPM1PRAfg5xztNxfbUcCgnOsEB4rjvjVlwepafi6HMympOs9GA'
+      'Authorization': 'Bearer BQAwt1KSwH1oIddPRjU6BHO2CV5ltTYPKRcX0mhvfcZY4pR7qGL3oq5MGb5W6Mu9y9kzRCJmrxMHZo7RKDLbOqOiJUqGT_SDuMsLsmz0rbX4N7P6e8p6WNLYqPnJS2e0CJdwxvgerIwBgAB5MrP19wEZ44EYkSY'
     });
 
     return this.http.get(url, { headers });
 
   }
 
+  //  función que retorna un limite de 20 petiones de albums
 
   getNewReleases() {
 
@@ -31,6 +36,8 @@ export class SpotifyService {
 
   }
 
+  //  función que retorna un limite de 15 petiones de artistas
+
   getArtistas( termino: string ) {
 
     return this.getQuery(`search?q=${ termino }&type=artist&limit=15`)
@@ -38,10 +45,11 @@ export class SpotifyService {
 
   }
 
+  // query para retornar el id de artista
+
   getArtista( id: string ) {
 
     return this.getQuery(`artists/${ id }`);
-                // .pipe( map( data => data['artists'].items));
 
   }
 

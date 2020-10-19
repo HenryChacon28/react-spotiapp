@@ -14,6 +14,8 @@ export class HomeComponent {
   error: boolean;
   mensajeError: string;
 
+  // constructor que valida y lanza error al encontrar data
+
   constructor( private spotify: SpotifyService ) {
 
     this.loading = true;
@@ -32,7 +34,5 @@ export class HomeComponent {
         });
 
   }
-
-
 
 }

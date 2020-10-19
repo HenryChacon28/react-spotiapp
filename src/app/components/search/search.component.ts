@@ -11,6 +11,8 @@ export class SearchComponent {
   artistas: any[] = [];
   loading: boolean;
 
+  // constructor para busqueda de data
+
   constructor(private spotify: SpotifyService) { }
 
   buscar(termino: string) {
